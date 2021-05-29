@@ -5,18 +5,6 @@
 
 library(dplyr)
 library(Seurat)
-library(pheatmap)
-library(ggplot2)
-library(cowplot)
-library(stats4)
-library(splines)
-library(VGAM)
-library(irlba)
-library(DDRTree)
-library(reshape2)
-library(tidyr)
-library(Biobase)
-library(monocle)
 setwd("....")
 
 
