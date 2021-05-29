@@ -104,24 +104,11 @@ for (i in names(all.list)) {
   all.list[[i]] <- FindVariableFeatures(all.list[[i]], selection.method = "vst", nfeatures = 2000)
 }
 
-######################################removing#############################################
-save.image(file = "scRNAseq1.RData")
-remove(spermatogonia)
-remove(Spermatocytes)
-remove(Spermatids)
-remove(Spermatogenesis1)
-remove(Spermatogenesis1)
-remove(spermatogonia.data)
-remove(Spermatocytes.data)
-remove(Spermatids.data)
-remove(Spermatogenesis1.data )
-remove(Spermatogenesis2.data)
+
 ######################################INTEGRATION###########################################
 n=35
 all.anchors <- FindIntegrationAnchors(object.list=all.list,dims = 1:n)
 all.integrated <- IntegrateData(anchorset = all.anchors, dims = 1:n)
 dim(all.integrated )
-######################################removing###############################################
+######################################Saving###############################################
 save.image(file = "scRNAseq2.RData")
-remove(all.list)
-remove(all.anchors)
