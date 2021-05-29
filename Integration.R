@@ -111,4 +111,4 @@ all.anchors <- FindIntegrationAnchors(object.list=all.list,dims = 1:n)
 all.integrated <- IntegrateData(anchorset = all.anchors, dims = 1:n)
 dim(all.integrated )
 ######################################Saving###############################################
-save.image(file = "scRNAseq2.RData")
+save.image(file = "integratedData.RData")
