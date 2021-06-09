@@ -1,16 +1,6 @@
 library(dplyr)
 library(Seurat)
-library(pheatmap)
 library(ggplot2)
-library(cowplot)
-library(stats4)
-library(splines)
-library(VGAM)
-library(irlba)
-library(DDRTree)
-library(reshape2)
-library(tidyr)
-library(Biobase)
 
 setwd("....")
 
@@ -36,9 +26,9 @@ classIDs<- Idents(all.integrated)
 
 pdf("./integrated_UMAP.pdf", width=10)
 Idents(all.integrated) <- dataIDs
-DimPlot(all.integrated, reduction = "umap", group.by = 'ident', repel = TRUE, 
-        cols= c( "blue3","lightskyblue","thistle","darkseagreen","lightpink1"),
-        order = c("Spermatogonia", "Spermatocyte", "Spermatid", "Spermatogenesis1","Spermatogenesis2" ))+
+DimPlot(all.integrated, reduction = "umap", group.by = 'ident', repel = TRUE,
+        order = c( "Spermatogenesis2","Spermatogenesis1", "Spermatogonia", "Spermatocyte","Spermatid"),
+        cols= c( "lightpink1","darkseagreen","thistle","lightskyblue","blue3")) + 
   theme(panel.background = element_rect(fill = "white", colour = "black"))
 
 Idents(all.integrated) <- classIDs
@@ -66,14 +56,14 @@ DotPlot(all.integrated, features = c("NANOS2","PIWIL4","GFRA1","SALL4","MAGEA4",
   theme(panel.background = element_rect(fill = "white", colour = "black"))
 dev.off()
 
-pdf("./Results2/Markers_spermatocyte.pdf", width=15)
+pdf("./Markers_spermatocyte.pdf", width=15)
 FeaturePlot(all.integrated, features = c("DMC1", "RAD51AP2","PIWIL1","SYCP3", "OVOL2"),cols=c("lightgrey","red"))
 VlnPlot(all.integrated, c("DMC1", "RAD51AP2","PIWIL1","SYCP3", "OVOL2"))
 DotPlot(all.integrated, features = c("DMC1", "RAD51AP2","PIWIL1","SYCP3", "OVOL2"),cols=c("lightgrey","red")) + RotatedAxis()+
   theme(panel.background = element_rect(fill = "white", colour = "black"))
 dev.off()
 
-pdf("./Results2/Markers_spermatid.pdf", width=15)
+pdf("./Markers_spermatid.pdf", width=15)
 FeaturePlot(all.integrated, features = c("TEX29","SUN5","SPEM1","SYCP3","OVOL2","ACR","PGK2"),cols=c("lightgrey","darkgreen"))
 VlnPlot(all.integrated, c("TEX29","SUN5","SPEM1","SYCP3","OVOL2","ACR","PGK2"))
 DotPlot(all.integrated, features = c("TEX29","SUN5","SPEM1","SYCP3","OVOL2","ACR","PGK2"),cols=c("lightgrey","darkgreen")) + RotatedAxis()+
