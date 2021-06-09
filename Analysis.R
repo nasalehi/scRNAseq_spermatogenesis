@@ -21,7 +21,7 @@ load("integratedData.RData")
 DefaultAssay(all.integrated) <- "integrated"
 all.integrated <- ScaleData(all.integrated, verbose = FALSE)
 all.integrated <- RunPCA(all.integrated, npcs = 50, verbose = FALSE)
-all.integrated <- RunUMAP(all.integrated, reduction = "pca", dims = 1:36)
+all.integrated <- RunUMAP(all.integrated, reduction = "pca", dims = 1:35)
 dim(all.integrated)
 dataIDs <- Idents(all.integrated)
 ###Clustering
