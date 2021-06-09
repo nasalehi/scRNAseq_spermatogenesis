@@ -7,9 +7,6 @@ setwd(".....")
 
 #############################################WGCNA######################################
 load("integrated_UMAP2.RData")  
-DefaultAssay(all.integrated) <- "RNA"
-DefaultAssay(all.integrated) <- "integrated"
-
 options(stringsAsFactors = F)
 
 datExpr <- t(as.matrix(GetAssayData(all.integrated)))
@@ -141,7 +138,6 @@ TOMplot(plotTOM, geneTree, moduleColors, main = "Network heatmap plot, all genes
 dev.off()
 
 # Recalculate module eigengenes
-#MEs = moduleEigengenes(datExpr, moduleColors)$eigengenes
 MET =MEs
 sizeGrWindow(5,7.5);
 par(cex = 0.9)
