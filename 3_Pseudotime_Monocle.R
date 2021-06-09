@@ -3,9 +3,10 @@ library(Seurat)
 library(ggplot2)
 library(monocle3)
 library(htmlwidgets)
+
 setwd("....")
 
-
+######################################Pseudotime_Monocle##########################################
 load("integrated_UMAP2.RData")
 
 nPC <-35
@@ -89,7 +90,7 @@ save.image(file = "monocle.RData")
 ######
 load("monocle3.RData")
 
-root_cells = choose_cells(cds_from_seurat ,reduction_method ="UMAP", return_list = TRUE)
+root_cells <- choose_cells(cds_from_seurat ,reduction_method ="UMAP", return_list = TRUE)
 cds_from_seurat <- order_cells(cds_from_seurat, root_cells = root_cells)
 
 cds_from_seurat_sub <- choose_graph_segments(cds_from_seurat)
