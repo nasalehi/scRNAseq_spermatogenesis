@@ -18,7 +18,7 @@ sizeGrWindow(9, 5)
 par(mfrow = c(1,2));
 cex1 = 0.9;
 # Scale-free topology fit index as a function of the soft-thresholding power
-pdf("./WGCNA/Scale-free_7.pdf")
+pdf("./WGCNA/Scale-free.pdf")
 plot(sft$fitIndices[,1], -sign(sft$fitIndices[,3])*sft$fitIndices[,2],
      xlab="Soft Threshold (power)",ylab="Scale Free Topology Model Fit,signed R^2",type="n",
      main = paste("Scale independence"));
@@ -45,7 +45,7 @@ table(net$colors)
 # Convert labels to colors for plotting
 mergedColors = net$colors
 # Plot the dendrogram and the module colors underneath
-pdf("./WGCNA/dendrogram_pearson_7.pdf")
+pdf("./WGCNA/dendrogram_pearson.pdf")
 plotDendroAndColors(net$dendrograms[[1]], mergedColors[net$blockGenes[[1]]],
                     "Module colors",
                     dendroLabels = FALSE, hang = 0.03,
@@ -141,20 +141,20 @@ dev.off()
 MET =MEs
 sizeGrWindow(5,7.5);
 par(cex = 0.9)
-pdf("./WGCNA/Eigengene_6.pdf")
+pdf("./WGCNA/Eigengene.pdf")
 plotEigengeneNetworks(MET, "", marDendro = c(0,4,1,2), marHeatmap = c(3,4,1,2), cex.lab = 0.8, xLabelsAngle
                       = 90)
 dev.off()
 
 sizeGrWindow(6,6);
 par(cex = 1.0)
-pdf("./WGCNA/Eigengene_dendrogram_6.pdf")
+pdf("./WGCNA/Eigengene_dendrogram.pdf")
 plotEigengeneNetworks(MET, "Eigengene dendrogram", marDendro = c(0,4,2,0),
                       plotHeatmaps = FALSE)
 dev.off()
 
 par(cex = 1.0)
-pdf("./WGCNA/Eigengene_heatmap_6.pdf")
+pdf("./WGCNA/Eigengene_heatmap.pdf")
 plotEigengeneNetworks(MET, "Eigengene adjacency heatmap", marHeatmap = c(3,4,2,2),
                       plotDendrograms = FALSE, xLabelsAngle = 90)
 dev.off()
